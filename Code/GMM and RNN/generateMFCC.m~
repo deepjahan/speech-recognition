@@ -1,0 +1,14 @@
+direc = 'FinalTrain'; 
+DD= dir(direc);
+
+for i=3:length(DD)
+
+   index=i-2;
+   path = [direc, filesep, DD(i).name, filesep];
+   D2 = dir(horzcat(path, ['*', 'wav']) );
+   for iFile=1:length(D2)
+        fName=regexp(D2(iFile).name,'\.','split');
+        fName=horzcat(fName{1},'.mfcc');
+        mfccFileGenerator(horzcat(path,[D2(iFile).name]),fName);
+   end
+end

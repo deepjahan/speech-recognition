@@ -1,0 +1,10 @@
+direc = '/home/deep/Downloads/SpeechRecog/FinalTestDeep/'; 
+DD= dir(direc);
+
+D2 = dir(horzcat(direc, ['*', 'wav']) );
+for iFile=1:length(D2)
+    fName=regexp(D2(iFile).name,'\.','split');
+    fName=horzcat(fName{1},'.mfcc');
+    mfccFileGenerator(horzcat(direc,[D2(iFile).name]),horzcat(direc,fName));
+end
+
